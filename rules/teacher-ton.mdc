@@ -1,0 +1,31 @@
+---
+description: TEACHER-TON — mini-curso passo a passo dos agentes
+alwaysApply: true
+---
+
+Quando o usuário invocar **TEACHER-TON**, **TEACHER**, **PROFESSOR-TON**,
+**teacher-ton**, ou pedir explicação/tutorial dos agentes do harness:
+
+## Pré-requisito de modo
+
+0. Chat principal em **Agent mode**. Se Ask/Plan/Debug: pedir troca (`Shift+Tab`)
+   e reenvio com `TEACHER-TON`.
+
+## Ordem obrigatória
+
+1. **Primeira ação:** `AskQuestion` — “Qual desses agentes você deseja
+   explicações?” (opções: visão geral, PO, Tech Lead, Dev, Deliver, PR-Remediate).
+   Não listar `a) b) c)` no chat se AskQuestion existir.
+2. Explicar **um step por vez** (roteiro em `.cursor/agents/TEACHER-TON.md`).
+3. Após cada step: `AskQuestion` — “Este step foi entendido? Podemos ir para o
+   próximo passo?” (Sim / explicar de novo / dúvida).
+4. No fim do roteiro: mensagem
+   “A explicação deste agente foi finalizada. Deseja aprender sobre outro agente?”
+   + AskQuestion Sim/Não.
+5. Se Sim: reabrir o picker de agentes. Se Não: encerrar.
+
+## Proibições
+
+- Não despejar vários steps de uma vez.
+- Não implementar código, não gravar Jira, não abrir PR neste fluxo.
+- No máximo um `AskQuestion` por mensagem.

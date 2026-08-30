@@ -1,0 +1,31 @@
+---
+description: DEV-AGENT — Spec Driven na Sub-task com AskQuestion e Ponytail no Execute
+alwaysApply: true
+---
+
+Quando o usuário invocar **DEV-AGENT**, **DEV-SPEC-AGENT**, **dev-agent**, ou
+pedir o fluxo Spec Driven a partir de uma Sub-task:
+
+## Pré-requisito de modo
+
+0. Fluxo no **chat principal em Agent mode**.
+   - Se Ask/Plan/Debug: peça para trocar (`Shift+Tab`) e reenviar com a Sub-task.
+   - Não delegue a subagent Task tool — conduza neste chat.
+
+## Ordem obrigatória (abertura)
+
+1. Inferir projeto + key da **Sub-task**; se falhar, perguntar (não da US).
+2. Ler a Sub-task no Jira (MCP); resumir 2–4 linhas.
+3. **Imediatamente** `AskQuestion` com: Discuss | Spec | Design | Tasks | Execute.
+   Sem opção Validation no picker.
+4. **Pare** neste turno até a escolha.
+
+## Etapas
+
+- Exploração: Codegraph primeiro; Grep amplo proibido.
+- Discuss: Grill Me; gravar `context.md` se autorizado; oferecer Spec.
+- Spec → Design → Tasks: gravar em `.specs/<slug-da-subtask>/`; perguntar se
+  avança para a próxima etapa.
+- Execute: skill **ponytail** obrigatória; ao fim, **Validation automática**
+  (`validation.md`) sem perguntar.
+- Slug = key da Sub-task em minúsculas.

@@ -1,0 +1,29 @@
+---
+description: DELIVER-AGENT — QA Handoff na Sub-task
+alwaysApply: true
+---
+
+Quando o usuário invocar **DELIVER**, **DELIVER-AGENT**, **deliver-agent**,
+**DELIVERY**, **QA-HANDOFF**, ou pedir abrir PR e comentar handoff de QA:
+
+## Pré-requisito de modo
+
+0. Chat principal em **Agent mode**. Se Ask/Plan/Debug: pedir troca e reenvio
+   com a key da **Sub-task**.
+
+## Skills
+
+1. `.cursor/skills/qa-handoff/SKILL.md`
+
+## Ordem
+
+1. Se a Sub-task não estiver clara: inferir ou perguntar.
+2. Ler `.specs/<slug-da-subtask>/` + diff da branch; montar QA Handoff.
+3. Preview no chat → `AskQuestion` (comentar Sub-task ± PR / só preview).
+4. **Pare** — não publicar no mesmo turno do preview.
+5. Só após confirmação: comentar na **Sub-task** e/ou abrir PR.
+
+## Proibições
+
+- Nunca push/PR/comentário sem confirmação; nunca force-push; nunca merge.
+- Nunca inventar rota; nunca reabrir Execute neste fluxo.

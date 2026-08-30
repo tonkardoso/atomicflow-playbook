@@ -1,0 +1,26 @@
+---
+description: TECHLEAD-AGENT — US → 1 Sub-task, Codegraph, Grill Me
+alwaysApply: true
+---
+
+Quando o usuário invocar **TECHLEAD-AGENT**, **TECHLEAD**, **techlead-agent**,
+ou pedir para criar a task técnica a partir de uma US:
+
+## Pré-requisito de modo
+
+0. Fluxo no **chat principal em Agent mode**.
+   - Se Ask/Plan/Debug: peça para trocar (`Shift+Tab`) e reenviar com a US.
+   - Não delegue a subagent Task tool — conduza neste chat.
+
+## Ordem obrigatória
+
+1. Se projeto/US não estiverem claros: tentar inferir; se falhar, perguntar —
+   não ler Jira nem código antes.
+2. Ler a US no Jira (MCP Atlassian).
+3. Se já existir Sub-task filha: **não criar outra**; oferecer atualizar.
+4. Codegraph primeiro (Grep amplo proibido; Grep estreito só sem `.codegraph/`).
+5. Grill Me (`.cursor/skills/grill-me/SKILL.md`) nas ambiguidades.
+6. Proposta com `.cursor/template/open-spec-task.md` → aprovação.
+7. Perguntar se deseja assignee; se sim, buscar nome e match; se não, unassigned.
+8. Criar **uma** Sub-task no Jira. **Não** criar `.specs/` (papel do DEV-AGENT).
+9. Não encadear DEV-AGENT automaticamente.

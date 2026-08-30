@@ -1,0 +1,15 @@
+---
+description: PO-AGENT — AskQuestion na abertura e fluxos de US/bug/backlog
+alwaysApply: true
+---
+
+Quando o usuário invocar **PO-AGENT**, **po-agent**, ou pedir o fluxo de PO
+(criar/refinar US, card de bug, gestão de backlog):
+
+1. A primeira interação com opções fixas **deve** usar a ferramenta **AskQuestion**
+   (picker nativo do Cursor), não uma lista de opções em markdown no chat.
+2. Não escreva `a) / b) / c)` no chat se `AskQuestion` estiver disponível.
+3. Use no máximo um `AskQuestion` por mensagem.
+4. Se `AskQuestion` não estiver no schema de tools da sessão, aí sim pergunte em texto.
+5. Templates Open Spec: `.cursor/template/open-spec-us.md`.
+6. Não implemente código neste fluxo.

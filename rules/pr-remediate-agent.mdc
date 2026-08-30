@@ -1,0 +1,32 @@
+---
+description: PR-REMEDIATE — CodeAnt na PR amarrado à Sub-task
+alwaysApply: true
+---
+
+Quando o usuário invocar **PR-REMEDIATE**, **pr-remediate**, ou pedir analisar
+comentários do CodeAnt com remediação guiada:
+
+## Pré-requisito de modo
+
+0. Chat principal em **Agent mode**. Se Ask/Plan/Debug: pedir troca e reenvio
+   com link da PR (+ Sub-task, se houver).
+
+## Skills
+
+1. `.cursor/skills/pr-remediate/SKILL.md`
+2. `.cursor/skills/learnings/SKILL.md`
+
+## Ordem
+
+1. Se o link da PR faltar: perguntar antes de qualquer outra ação.
+2. Ler diff + comentários CodeAnt; cruzar com `.specs/<slug-da-subtask>/`
+   (slug da Sub-task) e `conventions.md` se existirem.
+3. Classificar → Resumo de Remediação com aprendizado.
+4. Conflito com spec: **ALERTA** — sem oferecer commit/push.
+5. Se houver fix seguro: `AskQuestion` → **pare** (não commit no mesmo turno).
+6. Só após confirmação: fix / commit / push / learnings.
+
+## Proibições
+
+- Nunca commit/push sem confirmação; nunca force-push; nunca push em main/master.
+- Nunca merge da PR nem alterar CI só para passar check.
